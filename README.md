@@ -1,6 +1,7 @@
 # Discord bot (DecentraGuild)
 
-Standalone bot that serves all linked dGuild Discord servers. It does not connect to the database; it talks to the API with server-to-server auth.
+Standalone bot that serves all linked dGuild Discord servers. It does not connect to the database; it talks to the API with server-to-server auth.l
+
 
 ## What it does
 
