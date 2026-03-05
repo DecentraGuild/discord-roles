@@ -1,5 +1,5 @@
 /**
- * Bot config. Secrets f rom env; other defaults in constants below (override via env when needed).
+ * Bot config. Secrets from env; other defaults in constants below (override via env when needed).
  */
 
 const DEFAULT_API_BASE_URL = 'http://localhost:3001'
