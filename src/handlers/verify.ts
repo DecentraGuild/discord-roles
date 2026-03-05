@@ -1,4 +1,5 @@
 import type { ChatInputCommandInteraction } from 'discord.js'
+import { MessageFlags } from 'discord.js'
 import { createVerifySession, ApiError } from '../api-client.js'
 import { API_BASE_URL, DISCORD_BOT_API_SECRET, buildVerifyUrl, hasBotSecret } from '../config.js'
 
@@ -6,15 +7,15 @@ const GUILD_NOT_LINKED_CODE = 'GUILD_NOT_LINKED'
 
 export async function handleVerify(interaction: ChatInputCommandInteraction): Promise<void> {
   if (!hasBotSecret()) {
-    await interaction.reply({ content: 'Verification is not configured.', ephemeral: true })
+    await interaction.reply({ content: 'Verification is not configured.', flags: MessageFlags.Ephemeral })
     return
   }
   const guildId = interaction.guildId
   if (!guildId) {
-    await interaction.reply({ content: 'This command can only be used in a server.', ephemeral: true })
+    await interaction.reply({ content: 'This command can only be used in a server.', flags: MessageFlags.Ephemeral })
     return
   }
-  await interaction.deferReply({ ephemeral: true })
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral })
   try {
     const data = await createVerifySession(
       API_BASE_URL,
